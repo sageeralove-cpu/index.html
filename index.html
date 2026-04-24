@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@jax24fit4life · Links</title>
+  <meta name="description" content="All my links in one place">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:       #F5F2EE;
+      --card:     rgba(255, 255, 255, 0.80);
+      --text:     #1A1818;
+      --muted:    #8A8480;
+      --accent:   #C4A882;
+      --sage:     #A0B09A;
+      --border:   rgba(0, 0, 0, 0.07);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 3.5rem 1.25rem 4rem;
+      overflow-x: hidden;
+      position: relative;
+    }
+    .blobs { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+    .blob { position: absolute; filter: blur(70px); opacity: 0.65; }
+    .blob-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(196,168,130,0.4) 0%, transparent 70%); top: -140px; right: -120px; animation: morph1 20s ease-in-out infinite; }
+    .blob-2 { width: 420px; height: 420px; background: radial-gradient(circle, rgba(160,176,154,0.35) 0%, transparent 70%); bottom: 80px; left: -100px; animation: morph2 26s ease-in-out infinite; }
+    .blob-3 { width: 320px; height: 320px; background: radial-gradient(circle, rgba(214,198,183,0.45) 0%, transparent 70%); top: 45%; left: 50%; transform: translateX(-50%); animation: morph3 18s ease-in-out infinite; }
+    @keyframes morph1 {
+      0%,100% { transform: translate(0,0) scale(1); border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%; }
+      33%     { transform: translate(-40px, 50px) scale(1.08); border-radius: 40% 60% 30% 70% / 60% 40% 60% 40%; }
+      66%     { transform: translate(30px,-40px) scale(0.94); border-radius: 70% 30% 50% 50% / 40% 60% 40% 60%; }
+    }
+    @keyframes morph2 {
+      0%,100% { transform: translate(0,0) scale(1); border-radius: 50% 50% 60% 40% / 60% 40% 60% 40%; }
+      40%     { transform: translate(50px,-60px) scale(1.1); border-radius: 30% 70% 40% 60% / 50% 60% 40% 50%; }
+      70%     { transform: translate(-30px,40px) scale(0.9); border-radius: 60% 40% 70% 30% / 40% 70% 30% 60%; }
+    }
+    @keyframes morph3 {
+      0%,100% { transform: translateX(-50%) scale(1); border-radius: 40% 60% 50% 50% / 50% 40% 60% 50%; }
+      50%     { transform: translateX(-50%) translateY(-70px) scale(1.12); border-radius: 60% 40% 30% 70% / 40% 60% 50% 50%; }
+    }
+    .container { position: relative; z-index: 1; width: 100%; max-width: 430px; }
+    .profile { text-align: center; margin-bottom: 2.5rem; }
+    .avatar { width: 84px; height: 84px; border-radius: 50%; background: linear-gradient(135deg, var(--accent) 0%, var(--sage) 100%); margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; font-weight: 300; color: #fff; letter-spacing: -1px; overflow: hidden; border: 2px solid rgba(255,255,255,0.6); }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .profile h1 { font-size: 1.25rem; font-weight: 500; color: var(--text); letter-spacing: -0.02em; }
+    .profile .handle { font-size: 0.85rem; color: var(--accent); font-weight: 400; margin-top: 0.2rem; }
+    .profile .bio { font-size: 0.875rem; color: var(--muted); margin-top: 0.6rem; font-weight: 300; line-height: 1.6; max-width: 280px; margin-left: auto; margin-right: auto; }
+    .palette { display: flex; gap: 7px; justify-content: center; margin-top: 1.1rem; }
+    .swatch { width: 8px; height: 8px; border-radius: 50%; }
+    .section { margin-bottom: 1.75rem; }
+    .section-label { font-size: 0.68rem; font-weight: 500; color: var(--muted); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.7rem; padding-left: 0.2rem; }
+    .link-card { display: flex; align-items: center; gap: 1rem; background: var(--card); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 0.5px solid var(--border); border-radius: 16px; padding: 0.9rem 1.1rem; margin-bottom: 0.6rem; text-decoration: none; color: var(--text); transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease; }
+    .link-card:hover { transform: translateY(-2px); background: rgba(255,255,255,0.96); box-shadow: 0 8px 28px rgba(0,0,0,0.07); }
+    .link-card:active { transform: translateY(0) scale(0.99); }
+    .link-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0; }
+    .ic-sand  { background: rgba(196,168,130,0.18); }
+    .ic-sage  { background: rgba(160,176,154,0.20); }
+    .ic-blush { background: rgba(210,178,175,0.20); }
+    .ic-stone { background: rgba(155,150,144,0.14); }
+    .link-info { flex: 1; min-width: 0; }
+    .link-title { font-size: 0.92rem; font-weight: 500; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .link-sub { font-size: 0.77rem; color: var(--muted); font-weight: 300; margin-top: 0.15rem; }
+    .link-arrow { color: var(--muted); font-size: 0.85rem; flex-shrink: 0; }
+    .footer { text-align: center; margin-top: 3rem; font-size: 0.7rem; color: var(--muted); font-weight: 300; letter-spacing: 0.08em; }
+  </style>
+</head>
+<body>
+  <div class="blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <div class="container">
+    <div class="profile">
+      <div class="avatar"><span>Jx</span></div>
+      <h1>Jax</h1>
+      <p class="handle">@jax24fit4life</p>
+      <p class="bio">Reel creator · with God, grace and grit ❤️<br>sharing the things I care about ✦</p>
+      <div class="palette">
+        <div class="swatch" style="background:#C4A882;"></div>
+        <div class="swatch" style="background:#A0B09A;"></div>
+        <div class="swatch" style="background:#D6C6B7;"></div>
+        <div class="swatch" style="background:#1A1818;"></div>
+        <div class="swatch" style="background:#8A8480;"></div>
+      </div>
+    </div>
+    <div class="section">
+      <p class="section-label">Websites &amp; Socials</p>
+      <a class="link-card" href="https://buildr-ai.io" target="_blank" rel="noopener">
+        <div class="link-icon ic-sand">🌐</div>
+        <div class="link-info"><div class="link-title">Buildr AI</div><div class="link-sub">buildr-ai.io</div></div>
+        <span class="link-arrow">↗</span>
+      </a>
+      <a class="link-card" href="https://instagram.com/jax24fit4life" target="_blank" rel="noopener">
+        <div class="link-icon ic-blush">📸</div>
+        <div class="link-info"><div class="link-title">Instagram</div><div class="link-sub">@jax24fit4life</div></div>
+        <span class="link-arrow">↗</span>
+      </a>
+      <a class="link-card" href="https://tiktok.com/@jax24fit4life" target="_blank" rel="noopener">
+        <div class="link-icon ic-stone">🎵</div>
+        <div class="link-info"><div class="link-title">TikTok</div><div class="link-sub">@jax24fit4life</div></div>
+        <span class="link-arrow">↗</span>
+      </a>
+      <a class="link-card" href="https://youtube.com/@jax24fit4life" target="_blank" rel="noopener">
+        <div class="link-icon ic-blush">▶️</div>
+        <div class="link-info"><div class="link-title">YouTube</div><div class="link-sub">@jax24fit4life</div></div>
+        <span class="link-arrow">↗</span>
+      </a>
+    </div>
+    <div class="section">
+      <p class="section-label">Apps</p>
+      <a class="link-card" href="#" style="opacity:0.75;cursor:default;">
+        <div class="link-icon ic-sand">🧊</div>
+        <div class="link-info"><div class="link-title">Stokkd Fride Mate</div><div class="link-sub">Coming soon · App Store</div></div>
+        <span class="link-arrow" style="font-size:0.7rem;">soon</span>
+      </a>
+      <a class="link-card" href="#" style="opacity:0.75;cursor:default;">
+        <div class="link-icon ic-blush">🌙</div>
+        <div class="link-info"><div class="link-title">Cheon Myeong</div><div class="link-sub">Coming soon · Korean saju fortune</div></div>
+        <span class="link-arrow" style="font-size:0.7rem;">soon</span>
+      </a>
+      <a class="link-card" href="#" style="opacity:0.75;cursor:default;">
+        <div class="link-icon ic-sage">⟳</div>
+        <div class="link-info"><div class="link-title">Shift Reset</div><div class="link-sub">Coming soon · App Store</div></div>
+        <span class="link-arrow" style="font-size:0.7rem;">soon</span>
+      </a>
+    </div>
+    <div class="section">
+      <p class="section-label">Favourites &amp; Affiliates</p>
+      <a class="link-card" href="https://www.skool.com/schoolofmentors/about?ref=72e6911c37dd4940a2627a7dfda533c0" target="_blank" rel="noopener">
+        <div class="link-icon ic-sand">✦</div>
+        <div class="link-info"><div class="link-title">Learn from Billionaires</div><div class="link-sub">School of Mentors · skool.com</div></div>
+        <span class="link-arrow">↗</span>
+      </a>
+      <a class="link-card" href="https://www.skool.com/signup?ref=72e6911c37dd4940a2627a7dfda533c0" target="_blank" rel="noopener">
+        <div class="link-icon ic-sage">◉</div>
+        <div class="link-info"><div class="link-title">Share Your Purpose</div><div class="link-sub">Join Skool · skool.com</div></div>
+        <span class="link-arrow">↗</span>
+      </a>
+    </div>
+    <div class="section">
+      <p class="section-label">Projects &amp; Tools</p>
+      <a class="link-card" href="#" style="opacity:0.75;cursor:default;">
+        <div class="link-icon ic-sage">🌿</div>
+        <div class="link-info"><div class="link-title">Thrive Dashboard</div><div class="link-sub">Nervous system down regulation · coming soon</div></div>
+        <span class="link-arrow" style="font-size:0.7rem;">soon</span>
+      </a>
+    </div>
+    <div class="footer">made with intention &nbsp;✦&nbsp; 2026</div>
+  </div>
+</body>
+</html>
